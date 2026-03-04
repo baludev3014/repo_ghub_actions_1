@@ -23,10 +23,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build the Docker image
-        run: docker build -t my_github_actions_repo_1:latest .
+        run: docker build -t pradeep3014/github_actions:latest .
 
-      - name: Run the container
+      - name: login into the docker hub
         run: |
-          docker run -d --name my-running-app -p 4000:4000 my_github_actions_repo_1:latest
+          echo "${{secrets.REPO_TOKEN}}" | docker login -u pradeep3014 --password-stdin
   
- 
+      - name: pushing image into docker hub
+        run: docker push pradeep3014/github_actions:latest
