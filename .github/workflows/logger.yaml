@@ -14,26 +14,19 @@ jobs:
       - name: logging the message in the runner console.
         run: echo "new msg logged."
   
-  change_reflections:
+  build_and_run:
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Rebuilding the docker compose image with new changes
-        run: docker build -t new_github_actions_repo_1 .
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: docker build -t my_github_actions_repo_1:latest .
+
+      - name: Run the container
+        run: |
+          docker run -d --name my-running-app -p 4000:4000 my_github_actions_repo_1:latest
   
-  run_container:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: running the docker container
-        run: docker run -it new_github_actions_repo_1 -d -p 4000:4000
-
-
-
-          
-
-        
-  
+ 
