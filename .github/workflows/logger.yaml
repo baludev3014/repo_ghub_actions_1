@@ -1,0 +1,16 @@
+name: Logging the message on the console
+
+on:
+  push :
+    branches :
+      - main
+      - temp
+  
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - name: logging the message in the runner console.
+      run: echo "Logged message successfully"
+  
