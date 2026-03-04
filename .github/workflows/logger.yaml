@@ -22,9 +22,18 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Rebuilding the docker compose image with new changes
-        run: |
-          docker build -t new_github_actions_repo_1 .
-          docker run -it new_github_actions_repo_1 -p 4000:4000
+        run: docker build -t new_github_actions_repo_1 .
+  
+  run_container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: running the docker container
+        run: docker run -it new_github_actions_repo_1 -d -p 4000:4000
+
+
+
+          
 
         
   
