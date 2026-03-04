@@ -10,6 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: logging the message in the runner console.
         run: echo "new msg logged."
+  
+  change_reflections:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Rebuilding the docker compose image with new changes
+        run: docker-compose up -d --build
+        
   

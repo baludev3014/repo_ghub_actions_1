@@ -5,8 +5,12 @@ app.get('/',(req,res)=>{
     res.send("Home")
 })
 
-app.get('/roite',(req,res)=>{
+app.get('/route',(req,res)=>{
     res.send("new route")
+})
+
+app.get('/orders',(req,res)=>{
+    res.send("Orders");
 })
 
 app.listen(4000,()=>{
