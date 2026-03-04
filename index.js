@@ -17,6 +17,10 @@ app.get('/demo',(req,res)=>{
     res.send("demo")
 })
 
+app.get('/new',(req,res)=>{
+    res.send("new route")
+})
+
 app.listen(4000,()=>{
     console.log("App is listening on port 4000")
 })
