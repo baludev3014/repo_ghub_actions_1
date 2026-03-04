@@ -1,0 +1,11 @@
+services:
+  server_app:
+    build :
+      context: .
+      dockerfile : Dockerfile
+    
+    container_name : github_actions_repo_1
+    ports:
+      - "4000:4000"
+    restart : unless-stopped
+    
