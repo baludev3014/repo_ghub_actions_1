@@ -23,8 +23,8 @@ jobs:
       
       - name: Rebuilding the docker compose image with new changes
         run: |
-          docker build . 
-          docker-compose up -d
+          docker build -t new_github_actions_repo_1 .
+          docker run -it new_github_actions_repo_1 -p 4000:4000
 
         
   
